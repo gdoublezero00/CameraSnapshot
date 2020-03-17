@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './scss/App.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import '@blueprintjs/core/lib/css/blueprint.css'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
