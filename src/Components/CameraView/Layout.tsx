@@ -5,19 +5,34 @@ type Props = {
     hash?: number,
 }
 
+const cameras = [
+    {
+        description: "AI701", 
+        xaddr: "http://192.168.3.249:8080/onvif/device_service",
+        username: "admin",
+        password: "admin"
+    },
+    /*
+    {
+        description: "AI701", 
+        xaddr: "http://192.168.3.249:8080/onvif/device_service",
+        username: "admin",
+        password: "admin"
+    }
+    */
+]
+
 const Layout: React.FC<Props> = (props) => {
     return (
         <div className="container bp3-dark">
             <div className="row">
-                <div className="col">
-                    <Snapshot hash={props.hash} />
-                </div>
-                <div className="col">
-                    <Snapshot hash={props.hash} />
-                </div>
-                <div className="col">
-                    <Snapshot hash={props.hash} />
-                </div>
+                {cameras.map((v,i) => {
+                    return (
+                        <div className="col" key={i}>
+                            <Snapshot hash={props.hash} camera={v} />
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
